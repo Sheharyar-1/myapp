@@ -2,7 +2,7 @@
 <%= form_with model: post do |form| %>
   <div>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title %><br>
     <% post.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -15,8 +15,13 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  
 
   <div>
     <%= form.submit %>
   </div>
+  
+  
 <% end %>
+
+

@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+ 
+  respond_to :html, :xml
   def index
     @posts =Post.all
+    
   end
 
   def show 
@@ -19,7 +22,9 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      render :new, status: :unprocessable_entity
+      flash[:danger] = "Could not create a post."
+      # Redirect to the new post form
+      redirect_to new_post_path
     end
   end
 
@@ -38,9 +43,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    
     @post = Post.find(params[:id])
     @post.destroy
-
+    flash[:notice] = "You have successfully deleted the post."
     redirect_to root_path, status: :see_other
   end
   private
