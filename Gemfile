@@ -34,7 +34,9 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 gem 'responders', '~> 3.0'
 
-gem 'jbuilder'
+
+
+gem 'bcrypt'
 
 
 group :development, :test do

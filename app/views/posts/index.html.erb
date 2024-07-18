@@ -1,15 +1,15 @@
 <h1>Posts</h1>
 
 <ul>
-  <%=distance_of_time_in_words(Time.now, Time.now + 15.seconds, include_seconds: true)%><br>
+  <%= distance_of_time_in_words(Time.now, Time.now + 15.seconds, include_seconds: true) %><br>
   <%= number_to_currency (1212121212121221)%><br>
-  <%= image_tag "pp.jpg"%>
+  <%= image_tag "pp.jpg", width: 200, height: 200 %>
  
-  <% benchmark "test" do%>
+  <% benchmark "test" do %>
  
-    <%@posts.each do |post|%>
+    <% @posts.each do |post|%>
       <li>
-      <%= link_to post.title, post%>
+      <%= link_to post.title, post %>
       </li>
     <%end%>
   <%end%>
