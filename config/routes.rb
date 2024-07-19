@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root "posts#index"
-  #  resources :posts do
-  #    resources :comment, shallow: true
+  resources :posts do
+   resources :comment
+  end
   #    member do
   #      get "preview"
   #    end
@@ -17,14 +18,14 @@ Rails.application.routes.draw do
   # resources :posts
   # draw(:posts)
 
-  resources :posts, except: [ :create, :index ] do
-    resources :comment do
-      resources :likes, only: [ :create, :destroy ]
-      resources :replies do
-        resources :likes, only: [ :create, :destroy ]
-      end
-    end
-  end
+ # resources :posts, except: [ :create, :index ] do
+ #   resources :comment do
+ #     resources :likes, only: [ :create, :destroy ]
+ #     resources :replies do
+ #       resources :likes, only: [ :create, :destroy ]
+  #    end
+  #  end
+  #end
 
 
 
