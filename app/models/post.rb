@@ -1,8 +1,11 @@
 class Post < ApplicationRecord
-  has_many :comment
+  #has_one :commentable
+  #has_one :comment, through: :commentable
 
- after_save -> {puts "save!"}
- after_create -> {puts "create!"}
+  has_and_belongs_to_many :comments
+
+ #after_save -> {puts "save!"}
+ #after_create -> {puts "create!"}
 
 
  # before_save :check
@@ -25,7 +28,7 @@ class Post < ApplicationRecord
   #end
 
 
-  after_destroy Del
+  #after_destroy Del
 
 
 
@@ -56,20 +59,20 @@ class Post < ApplicationRecord
   #validates :s
  #        raise ActiveRecord::Rollback 
 
-  private
-    def check
-      if self.body.blank?
-        throw :abort
-      end
-      puts "success"
+  # private
+  #   def check
+  #     if self.body.blank?
+  #       throw :abort
+  #     end
+  #     puts "success"
     
-    end
+  #   end
 
-    def dfd
+  #   def dfd
    
-      puts "updated"
+  #     puts "updated"
       
-    end
+  #   end
 end
 
 
