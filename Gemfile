@@ -51,6 +51,8 @@ group :development, :test do
 
   gem 'byebug', group: [:development, :test]
 
+  gem 'faker'
+
 end
 
 group :development do
